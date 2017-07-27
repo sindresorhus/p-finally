@@ -3,13 +3,9 @@ module.exports = (promise, onFinally) => {
 	onFinally = onFinally || (() => {});
 
 	return promise.then(
-		val => {
-			onFinally();
-			return val;
-		},
-		err => {
-			onFinally();
+		val => Promise.resolve(onFinally()).then(() => val),
+		err => Promise.resolve(onFinally()).then(() => {
 			throw err;
-		}
+		})
 	);
 };
