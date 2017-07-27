@@ -8,7 +8,7 @@ Useful for cleanup.
 ## Install
 
 ```
-$ npm install --save p-finally
+$ npm install p-finally
 ```
 
 
@@ -38,7 +38,7 @@ Note: Throwing or returning a rejected promise will reject `promise` with the re
 
 ## Related
 
-- [p-try](https://github.com/sindresorhus/p-try) - `Promise#try()` ponyfill - Starts a promise chain
+- [p-try](https://github.com/sindresorhus/p-try) - `Promise.try()` ponyfill - Starts a promise chain
 - [More…](https://github.com/sindresorhus/promise-fun)
 
 
