@@ -17,9 +17,13 @@ $ npm install p-finally
 ```js
 const pFinally = require('p-finally');
 
-const dir = createTempDir();
+const directory = createTempDir();
 
-pFinally(write(dir), () => cleanup(dir));
+(async () => {
+	await pFinally(write(directory), () => {
+		cleanup(directory);
+	});
+});
 ```
 
 
@@ -40,8 +44,3 @@ Note: Throwing or returning a rejected promise will reject `promise` with the re
 
 - [p-try](https://github.com/sindresorhus/p-try) - `Promise.try()` ponyfill - Starts a promise chain
 - [More…](https://github.com/sindresorhus/promise-fun)
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

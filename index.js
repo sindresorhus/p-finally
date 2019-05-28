@@ -1,11 +1,15 @@
 'use strict';
-module.exports = (promise, onFinally) => {
-	onFinally = onFinally || (() => {});
 
-	return promise.then(
-		val => Promise.resolve(onFinally()).then(() => val),
-		err => Promise.resolve(onFinally()).then(() => {
-			throw err;
-		})
-	);
+module.exports = async (
+	promise,
+	onFinally = (() => {})
+) => {
+	try {
+		const value = await promise;
+		await onFinally();
+		return value;
+	} catch (error) {
+		await onFinally();
+		throw error;
+	}
 };
