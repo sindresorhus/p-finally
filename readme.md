@@ -17,7 +17,7 @@ $ npm install p-finally
 ```js
 const pFinally = require('p-finally');
 
-const directory = createTempDir();
+const directory = createTempDirectory();
 
 (async () => {
 	await pFinally(write(directory), () => {
@@ -29,7 +29,7 @@ const directory = createTempDir();
 
 ## API
 
-### pFinally(promise, [onFinally])
+### pFinally(promise, onFinally?)
 
 Returns a `Promise`.
 
@@ -44,3 +44,16 @@ Note: Throwing or returning a rejected promise will reject `promise` with the re
 
 - [p-try](https://github.com/sindresorhus/p-try) - `Promise.try()` ponyfill - Starts a promise chain
 - [More…](https://github.com/sindresorhus/promise-fun)
+
+
+---
+
+<div align="center">
+	<b>
+		<a href="https://tidelift.com/subscription/pkg/npm-p-finally?utm_source=npm-p-finally&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
+	</b>
+	<br>
+	<sub>
+		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
+	</sub>
+</div>
