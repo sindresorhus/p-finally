@@ -4,12 +4,14 @@ module.exports = async (
 	promise,
 	onFinally = (() => {})
 ) => {
+	let value;
 	try {
-		const value = await promise;
-		await onFinally();
-		return value;
+		value = await promise;
 	} catch (error) {
 		await onFinally();
 		throw error;
 	}
+
+	await onFinally();
+	return value;
 };

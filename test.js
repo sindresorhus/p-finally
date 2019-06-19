@@ -44,3 +44,15 @@ test('returning a rejected promise in the callback for an already rejected promi
 		t.is(error, fixtureError);
 	});
 });
+
+test('the onFinally callback is only called once no matter what', async t => {
+	t.plan(1);
+
+	await pFinally(
+		Promise.resolve(),
+		() => {
+			t.pass();
+			throw new Error(); // eslint-disable-line unicorn/error-message
+		}
+	).catch(() => {});
+});
