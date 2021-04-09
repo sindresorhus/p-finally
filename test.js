@@ -1,5 +1,5 @@
 import test from 'ava';
-import pFinally from '.';
+import pFinally from './index.js';
 
 const fixture = Symbol('fixture');
 const fixtureError = new Error('error');

@@ -1,9 +1,7 @@
-'use strict';
-
-module.exports = async (
+export default async function pFinally(
 	promise,
 	onFinally = (() => {})
-) => {
+) {
 	let value;
 	try {
 		value = await promise;
@@ -14,4 +12,4 @@ module.exports = async (
 
 	await onFinally();
 	return value;
-};
+}

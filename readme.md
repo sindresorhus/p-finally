@@ -4,28 +4,23 @@
 
 Useful for cleanup.
 
-
 ## Install
 
 ```
 $ npm install p-finally
 ```
 
-
 ## Usage
 
 ```js
-const pFinally = require('p-finally');
+import pFinally from 'p-finally';
 
 const directory = createTempDirectory();
 
-(async () => {
-	await pFinally(write(directory), () => {
-		cleanup(directory);
-	});
+await pFinally(write(directory), () => {
+	cleanup(directory);
 });
 ```
-
 
 ## API
 
@@ -39,12 +34,10 @@ Type: `Function`
 
 Note: Throwing or returning a rejected promise will reject `promise` with the rejection reason.
 
-
 ## Related
 
 - [p-try](https://github.com/sindresorhus/p-try) - `Promise.try()` ponyfill - Starts a promise chain
 - [More…](https://github.com/sindresorhus/promise-fun)
-
 
 ---
 
